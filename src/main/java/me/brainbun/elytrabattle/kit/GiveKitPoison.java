@@ -1,20 +1,25 @@
 package me.brainbun.elytrabattle.kit;
 
+import me.brainbun.elytrabattle.kitcreator.MainWeaponInterface;
+import me.brainbun.elytrabattle.kitcreator.TippedArrowInterface;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class GiveKitPoison extends CreateKitFactory implements MainWeaponInterface,TippedArrowInterface{
+import static me.brainbun.elytrabattle.kitcreator.CreateKitFactory.*;
+
+public class GiveKitPoison implements MainWeaponInterface, TippedArrowInterface {
     public GiveKitPoison(Player player){
         PlayerInventory inventory = player.getInventory();
         giveWeapon(this,inventory);
-        giveTippedArrow(this,inventory);
         giveEssentials(inventory);
+        giveTippedArrow(this,inventory);
     }
 
     @Override
@@ -23,48 +28,21 @@ public class GiveKitPoison extends CreateKitFactory implements MainWeaponInterfa
     }
 
     @Override
-    public List<PotionEffectInterface> potionEffects() {
-        List<PotionEffectInterface> list = new ArrayList<>();
-        PotionEffectInterface effectOne = new PotionEffectInterface() {
-            @Override
-            public PotionEffectType potionEffect() {
-                return PotionEffectType.CONFUSION;
-            }
+    public Color color() {
+        return Color.GREEN;
+    }
 
-            @Override
-            public int duration() {
-                return 300;
-            }
-
-            @Override
-            public int amplifier() {
-                return 5;
-            }
-        };
-        PotionEffectInterface effectTwo = new PotionEffectInterface() {
-            @Override
-            public PotionEffectType potionEffect() {
-                return PotionEffectType.POISON;
-            }
-
-            @Override
-            public int duration() {
-                return 100;
-            }
-
-            @Override
-            public int amplifier() {
-                return 2;
-            }
-        };
-        list.add(effectOne);
-        list.add(effectTwo);
+    @Override
+    public List<PotionEffect> potionEffects() {
+        List<PotionEffect> list = new ArrayList<>();
+        list.add(new PotionEffect(PotionEffectType.POISON,100,2));
+        list.add(new PotionEffect(PotionEffectType.CONFUSION,300,5));
         return list;
     }
 
     @Override
     public String displayWeaponName() {
-        return null;
+        return "Fanged Bow";
     }
 
     @Override

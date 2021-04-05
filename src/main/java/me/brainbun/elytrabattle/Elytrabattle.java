@@ -18,8 +18,6 @@ public final class Elytrabattle extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this,this);
         getServer().getPluginManager().registerEvents(new ExplodeOnDeath(),this);
         getCommand("getKit").setTabCompleter(new GetKitTab());
-
-
     }
 
     @Override

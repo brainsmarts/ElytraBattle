@@ -19,6 +19,8 @@ public class GetKitTab implements TabCompleter {
         list.add("tnt");
         list.add("wildMagic");
         list.add("melee");
+        list.add("shotgun");
+        list.add("trident");
 
         return list;
     }

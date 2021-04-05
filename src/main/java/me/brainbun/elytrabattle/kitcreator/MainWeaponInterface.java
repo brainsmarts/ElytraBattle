@@ -1,4 +1,4 @@
-package me.brainbun.elytrabattle.kit;
+package me.brainbun.elytrabattle.kitcreator;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -8,5 +8,4 @@ public interface MainWeaponInterface {
     Material mainWeaponMaterial();
     Enchantment enchantment();
     int enchantmentLevel();
-
 }
