@@ -16,6 +16,7 @@ public class GiveKitShotgun implements MainWeaponInterface {
     public GiveKitShotgun(Player player){
         PlayerInventory inventory = player.getInventory();
         CreateKitFactory.giveWeapon(this,inventory);
+        CreateKitFactory.giveWeapon(this,inventory);
         CreateKitFactory.giveEssentials(inventory);
         giveFireworks(inventory);
     }
