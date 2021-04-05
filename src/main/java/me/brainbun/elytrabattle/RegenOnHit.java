@@ -13,8 +13,8 @@ public class RegenOnHit implements Listener {
     public void regenOnhit(EntityDamageByEntityEvent event){
         if(event.getDamager() instanceof Player){
             if(((Player) event.getDamager()).getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals("Melee Weapon")){
-                ((Player) event.getDamager()).addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,30,10));
-                ((Player) event.getDamager()).addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,100,1));
+                ((Player) event.getDamager()).addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,40,1));
+                ((Player) event.getDamager()).addPotionEffect(new PotionEffect(PotionEffectType.SATURATION,100,0));
             }
         }
 

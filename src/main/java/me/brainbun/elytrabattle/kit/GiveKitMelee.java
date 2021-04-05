@@ -34,6 +34,6 @@ public class GiveKitMelee implements MainWeaponInterface {
 
     @Override
     public int enchantmentLevel() {
-        return 500;
+        return 10;
     }
 }
