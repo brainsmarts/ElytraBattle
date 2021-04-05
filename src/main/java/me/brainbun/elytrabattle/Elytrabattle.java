@@ -15,6 +15,7 @@ public final class Elytrabattle extends JavaPlugin implements Listener {
         getCommand("getKit").setExecutor(new GetKit());
         getCommand("startBattle").setExecutor(new StartBattle());
         getServer().getPluginManager().registerEvents(new CustomArrowEffects(),this);
+        getServer().getPluginManager().registerEvents(new RegenOnHit(),this);
         getServer().getPluginManager().registerEvents(this,this);
         getServer().getPluginManager().registerEvents(new ExplodeOnDeath(),this);
         getCommand("getKit").setTabCompleter(new GetKitTab());

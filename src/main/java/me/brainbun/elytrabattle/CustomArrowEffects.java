@@ -47,9 +47,9 @@ public class CustomArrowEffects implements Listener {
                 break;
             case 7:
                 Location location = victim.getLocation();
-                location.setY(location.getY()+(Math.random()-10)+10);
-                location.setX(location.getX()-(Math.random()-10)+10);
-                location.setZ(location.getZ()-(Math.random()-10)+10);
+                location.setY(location.getY()+(Math.random()-20)+40);
+                location.setX(location.getX()-(Math.random()-20)+40);
+                location.setZ(location.getZ()-(Math.random()-20)+40);
                 victim.teleport(location);
                 break;
             case 8:
