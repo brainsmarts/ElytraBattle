@@ -1,7 +1,7 @@
 package me.brainbun.elytrabattle.kit;
 
 import me.brainbun.elytrabattle.kitcreator.CreateKitFactory;
-import me.brainbun.elytrabattle.kitcreator.MainWeaponInterface;
+import me.brainbun.elytrabattle.kitcreator.WeaponCreator;
 import me.brainbun.elytrabattle.kitcreator.TippedArrowInterface;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -14,32 +14,14 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GiveKitBlinding implements TippedArrowInterface, MainWeaponInterface {
+public class GiveKitBlinding implements TippedArrowInterface{
     public GiveKitBlinding(Player player){
         PlayerInventory inventory = player.getInventory();
-        CreateKitFactory.giveWeapon(this,inventory);
+        WeaponCreator mainWeapon = new WeaponCreator("Ink Shot",Material.BOW,Enchantment.ARROW_KNOCKBACK,2);
+        mainWeapon.giveWeapon(inventory);
         CreateKitFactory.giveEssentials(inventory);
         CreateKitFactory.giveTippedArrow(this,inventory);
 
-    }
-    @Override
-    public String displayWeaponName() {
-        return "Ink Shot";
-    }
-
-    @Override
-    public Material mainWeaponMaterial() {
-        return Material.BOW;
-    }
-
-    @Override
-    public Enchantment enchantment() {
-        return Enchantment.ARROW_KNOCKBACK;
-    }
-
-    @Override
-    public int enchantmentLevel() {
-        return 2;
     }
 
     @Override

@@ -1,7 +1,7 @@
 package me.brainbun.elytrabattle.kit;
 
 import me.brainbun.elytrabattle.kitcreator.CreateKitFactory;
-import me.brainbun.elytrabattle.kitcreator.MainWeaponInterface;
+import me.brainbun.elytrabattle.kitcreator.WeaponCreator;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
@@ -11,12 +11,13 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.FireworkMeta;
 
-public class GiveKitShotgun implements MainWeaponInterface {
+public class GiveKitShotgun {
 
     public GiveKitShotgun(Player player){
         PlayerInventory inventory = player.getInventory();
-        CreateKitFactory.giveWeapon(this,inventory);
-        CreateKitFactory.giveWeapon(this,inventory);
+        WeaponCreator mainWeapon = new WeaponCreator("Shotgun",Material.CROSSBOW, Enchantment.MULTISHOT,1);
+        mainWeapon.giveWeapon(inventory);
+        mainWeapon.giveWeapon(inventory);
         CreateKitFactory.giveEssentials(inventory);
         giveFireworks(inventory);
     }
@@ -33,25 +34,5 @@ public class GiveKitShotgun implements MainWeaponInterface {
         fireworks.setItemMeta(meta);
 
         inventory.addItem(fireworks,fireworks);
-    }
-
-    @Override
-    public String displayWeaponName() {
-        return "ShotGun";
-    }
-
-    @Override
-    public Material mainWeaponMaterial() {
-        return Material.CROSSBOW;
-    }
-
-    @Override
-    public Enchantment enchantment() {
-        return Enchantment.MULTISHOT;
-    }
-
-    @Override
-    public int enchantmentLevel() {
-        return 1;
     }
 }

@@ -1,7 +1,7 @@
 package me.brainbun.elytrabattle.kit;
 
 import me.brainbun.elytrabattle.kitcreator.CreateKitFactory;
-import me.brainbun.elytrabattle.kitcreator.MainWeaponInterface;
+import me.brainbun.elytrabattle.kitcreator.WeaponCreator;
 import me.brainbun.elytrabattle.kitcreator.TippedArrowInterface;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -14,32 +14,13 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GiveKitWither implements MainWeaponInterface, TippedArrowInterface {
+public class GiveKitWither implements TippedArrowInterface {
     public GiveKitWither(Player player){
         PlayerInventory inventory = player.getInventory();
-        CreateKitFactory.giveWeapon(this,inventory);
+        WeaponCreator mainWeapon = new WeaponCreator("Withering Bow",Material.BOW);
+        mainWeapon.giveWeapon(inventory);
         CreateKitFactory.giveEssentials(inventory,Material.WITHER_SKELETON_SKULL);
         CreateKitFactory.giveTippedArrow(this,inventory);
-    }
-
-    @Override
-    public String displayWeaponName() {
-        return "Withering Bow";
-    }
-
-    @Override
-    public Material mainWeaponMaterial() {
-        return Material.BOW;
-    }
-
-    @Override
-    public Enchantment enchantment() {
-        return null;
-    }
-
-    @Override
-    public int enchantmentLevel() {
-        return 0;
     }
 
     @Override

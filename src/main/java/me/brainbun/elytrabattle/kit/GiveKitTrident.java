@@ -1,38 +1,19 @@
 package me.brainbun.elytrabattle.kit;
 
 import me.brainbun.elytrabattle.kitcreator.CreateKitFactory;
-import me.brainbun.elytrabattle.kitcreator.MainWeaponInterface;
+import me.brainbun.elytrabattle.kitcreator.WeaponCreator;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.PlayerInventory;
 
-public class GiveKitTrident implements MainWeaponInterface {
+public class GiveKitTrident  {
     public GiveKitTrident(Player player){
         PlayerInventory inventory = player.getInventory();
+        WeaponCreator mainWeapon = new WeaponCreator("Jeffery",Material.TRIDENT, Enchantment.LOYALTY,3);
         for(int i = 0; i < 5; i++){
-            CreateKitFactory.giveWeapon(this,inventory);
+            mainWeapon.giveWeapon(inventory);
         }
         CreateKitFactory.giveEssentials(inventory);
-    }
-
-    @Override
-    public String displayWeaponName() {
-        return "Jeffery";
-    }
-
-    @Override
-    public Material mainWeaponMaterial() {
-        return Material.TRIDENT;
-    }
-
-    @Override
-    public Enchantment enchantment() {
-        return Enchantment.LOYALTY;
-    }
-
-    @Override
-    public int enchantmentLevel() {
-        return 1;
     }
 }
