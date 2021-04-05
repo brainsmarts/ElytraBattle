@@ -12,6 +12,6 @@ public class ExplodeOnDeath implements Listener {
     public void explodeOnDeath(PlayerDeathEvent event){
         Location location = event.getEntity().getLocation();
         World world = event.getEntity().getWorld();
-        world.createExplosion(location,20);
+        world.createExplosion(location,5);
     }
 }

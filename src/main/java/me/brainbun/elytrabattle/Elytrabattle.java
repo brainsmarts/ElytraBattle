@@ -9,8 +9,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Elytrabattle extends JavaPlugin implements Listener {
 
-    public Elytrabattle elytrabattle = this;
-
     @Override
     public void onEnable() {
         // Plugin startup logic

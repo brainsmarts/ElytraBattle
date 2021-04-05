@@ -36,6 +36,8 @@ public class CustomArrowEffects implements Listener {
         Random random = new Random();
         int x = random.nextInt(10)+1;
         World world = victim.getWorld();
+
+
         switch (x){
             case 6:
                 world.createExplosion(victim.getLocation(),20,true);
@@ -50,7 +52,6 @@ public class CustomArrowEffects implements Listener {
                 location.setZ(location.getZ()-(Math.random()-10)+10);
                 victim.teleport(location);
                 break;
-                //teleport
             case 8:
                 randomPotionEffect(victim);
                 break;
